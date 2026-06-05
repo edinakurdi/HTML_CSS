@@ -1,0 +1,82 @@
+/* User Agent Stylesheet is the default style */
+
+body {
+    font-family: sans-serif;
+    font-size: 1.25rem;
+    /* based on root element, here: html. rem is a scaled value of what our html value is; default is 16px; Rem is considered a Relative Unit, because it is relative to another value */
+    /* dont ever give px-as thats a css fixed size, and overrides the user preference */
+    line-height: 1.5;
+    /* you generally want the line height to be much more than your font size
+    usually can use a ratio (unitless): the default is 1.4; try 1.5-1.6 first */
+}
+
+
+header {
+    /* image is in the header - logo, can centre the img, but you need to select the parent container, otherwise it centres itslef in the img. this works bc img is an inline element*/
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* this is called font-stacking */
+    color: #4676a9;
+    text-align: center;
+    /* logical values (start, end) can be used for logical properties [new to text-alignment], instead of L-R, start and end; this is bc ome languages go from R-L and the logic property aligns this approriately.  */
+
+    /* inline-size: 200px; */
+    /* this is a logical property, non-logical alterantive is width;
+    one has to be careful, as this can cause issues when screen size chnages, although not as bad as block-size */
+
+    font-size: 7.5rem;
+    line-height: 1.1;
+}
+
+h2 {
+    color: #cb831c;
+    /* alternatively if you want it to inherit, can use the value "inherit" for this property */
+    font-size: 2.5rem;
+    background: lightblue;
+
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+a {
+    color: teal;
+}
+
+
+section {
+    margin-block: 75px;
+    /* this is the space between the top and bottom of the section */
+}
+
+footer {
+    padding: 50px;
+    /* empty space all the way around including the backgrounf colour */
+    text-align: center;
+    background-color: #22466C;
+    color: #fff;
+}
+
+p {
+    background: pink;
+    /* good idea to give background colour, so you can test whats happening */
+
+    /* block-size: 350px; */
+    /* this increases the height of the box the text is in BUT as the screensize decreases, the text will spill out
+    the non-logical version of this is height
+    this most of the time should not be used as we want the layout to be able to adapt*/
+
+    /* padding-block: 100px; */
+    /* top and bottom padding, can also do padding-inline for left and right 
+    also could do padding-inline-start or padding-inline-end 
+    or padding-block-start and padding-block-end
+    or shorthand: top, right, bottom, left, and not using logical properties*/
+    /* padding: 20px 40px 60px 80px; */
+    /* or if 3: top, l-r, bottom
+    or if 2: top-bottom, l-r */
+
+}
