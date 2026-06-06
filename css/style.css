@@ -1,4 +1,7 @@
-/* User Agent Stylesheet is the default style */
+* {
+    box-sizing: border-box;
+    /* meaning: sizes that we declare on the element include the content box, plus the padding, plus the border. */
+}
 
 body {
     font-family: sans-serif;
@@ -54,15 +57,16 @@ section {
 }
 
 footer {
-    padding: 50px;
-    /* empty space all the way around including the backgrounf colour */
+    padding: 20px;
+    /* empty space all the way around including the background colour */
     text-align: center;
     background-color: #22466C;
     color: #fff;
+    border: solid #6E84CF 2px
 }
 
 p {
-    background: pink;
+    /* background: pink; */
     /* good idea to give background colour, so you can test whats happening */
 
     /* block-size: 350px; */
@@ -78,5 +82,13 @@ p {
     /* padding: 20px 40px 60px 80px; */
     /* or if 3: top, l-r, bottom
     or if 2: top-bottom, l-r */
+
+    /* margins are empty space that do NOT include the background colour */
+    /* margin also has block (adding empty space up and down) and inline (adding empty space left and right) */
+
+    /* width, style and color that can be added to borders */
+    /* border can be border-block (top and bottom) or border-inline (LR), each can have a start or end */
+    /* individual parts for width eg can be targeted: border-block-end-width */
+    /* border-top, bottom, left, right exist but are not logical properties, so avoid */
 
 }
