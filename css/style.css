@@ -50,12 +50,49 @@ h3 {
 
 a {
     color: teal;
+    text-decoration-style: wavy;
 }
+
+a:visited {
+    color: blue
+        /* not necessarily needed */
+}
+
+a:hover,
+a:focus-visible {
+    color: yellowgreen
+        /* a:focus-visible is for keyboard navigation - it gives an outline 
+ this should alwaus be added to hover state */
+        /* also dont rely on hover, most users will be on touch devices */
+}
+
+a:active {
+    color: darkcyan;
+    /* not necessarily needed */
+}
+
+/* this order is important: a, a:visited, a:hover+a:focus-visible, a:active */
 
 
 section {
     margin-block: 75px;
     /* this is the space between the top and bottom of the section */
+}
+
+img {
+    max-inline-size: 100%;
+    /* not logical v: max-width */
+    display: block;
+}
+
+.wrapper {
+    /* standard to call it .container, but a new css feature in CSS called Container Queries - so to avoid confusion */
+    max-inline-size: 2000px;
+    margin-inline: auto;
+}
+
+.teal-text {
+    color: #087a98;
 }
 
 .teal-bg {
@@ -64,6 +101,10 @@ section {
     padding: 20px;
     /* empty space all the way around including the background colour */
     border: 10px solid #0b4a5a;
+}
+
+.teal-bg strong {
+    color: yellow
 }
 
 strong {
@@ -75,9 +116,7 @@ footer {
     text-align: center;
 }
 
-.teal-text {
-    color: #087a98;
-}
+
 
 /* p { */
 /* background: pink; */
@@ -111,8 +150,32 @@ footer {
     color: red;
 }
 
-div {
-    background-color: #087A98;
-    border: #0b4a5a;
-    color: #fff;
+
+.climber-bg {
+    background-image: url(../version_2/images/simple-steps.jpg);
+    padding: 24px;
+    border: 10px solid #0b4a5a;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* or fixed position such as: 100px 10px */
+    /* down by 10 and over by 100 from the top left corner*/
+    background-size: cover;
+    /* have both a background-color and a background-image,
+        so that if your image fails to load,
+        you ensure that you have a solid color that makes it easy to read your text on. */
+}
+
+ul {
+    color: black;
+    list-style: circle;
+    list-style-position: outside;
+    /* to see what this does, add  border and margin-block to li */
+    /* outside looks cleaner weh theres a text wrap; but this is the default, so its not needed */
+}
+
+ul li::marker {
+    color: red;
+    /* :focus is a pseudo class, this is pseudo element */
+    content: "😁"
+
 }
