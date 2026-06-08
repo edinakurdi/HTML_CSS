@@ -81,14 +81,20 @@ section {
 
 img {
     max-inline-size: 100%;
-    /* not logical v: max-width */
+    /* not logical version, but dont use: max-width */
     display: block;
 }
 
 .wrapper {
     /* standard to call it .container, but a new css feature in CSS called Container Queries - so to avoid confusion */
-    max-inline-size: 2000px;
+    max-inline-size: 1000px;
     margin-inline: auto;
+}
+
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
 }
 
 .teal-text {
