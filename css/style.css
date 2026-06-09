@@ -79,6 +79,15 @@ section {
     /* this is the space between the top and bottom of the section */
 }
 
+.primary-navigation ul {
+    list-style: none;
+    /* this takes away the semantics of the element though */
+}
+
+.primary-navigation li::marker {
+    content: none;
+}
+
 img {
     max-inline-size: 100%;
     /* not logical version, but dont use: max-width */
@@ -183,5 +192,4 @@ ul li::marker {
     color: red;
     /* :focus is a pseudo class, this is pseudo element */
     content: "😁"
-
 }
