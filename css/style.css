@@ -15,11 +15,16 @@ body {
 
 
 header {
-    /* image is in the header - logo, can centre the img, but you need to select the parent container, otherwise it centres itslef in the img. this works bc img is an inline element*/
-    text-align: center;
+    /* image is in the header - logo, can centre the img, but you need to select the parent container, otherwise it centres itslef in the img. this works bc img is an inline element
+   
+/* text-align: center; */
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
 }
 
-h1 {
+*/ h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     /* this is called font-stacking */
 
@@ -80,12 +85,28 @@ section {
 }
 
 .primary-navigation ul {
+    display: flex;
+    gap: 10px;
     list-style: none;
     /* this takes away the semantics of the element though */
+    margin: 0;
+    padding: 0;
 }
 
 .primary-navigation li::marker {
     content: none;
+}
+
+.primary-navigation a {
+    /* this class is boosting the specificity of my selector */
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.primary-navigation a:hover,
+.primary-navigationa:focus-visible {
+    color: #5f9b9f;
 }
 
 img {
