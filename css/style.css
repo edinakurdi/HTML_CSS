@@ -44,11 +44,9 @@ h1 {
     text-align: center;
     font-size: 4.5rem;
     line-height: 1.1;
-}
 
-/* Modern responsive text sizing using Container/Viewport Media Queries */
-@media (width > 720px) {
-    h1 {
+    /* Nesting the media query directly inside the element block */
+    @media (width > 720px) {
         font-size: 7.5rem;
     }
 }
