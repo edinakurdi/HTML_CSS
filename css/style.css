@@ -1,61 +1,77 @@
+/* ==========================================================================
+   Base Styles & Resets
+   ========================================================================== */
+
 * {
     box-sizing: border-box;
-    /* meaning: sizes that we declare on the element include the content box, plus the padding, plus the border. */
+    /* Includes padding and borders within the element's total declared width/height */
 }
 
 body {
     font-family: sans-serif;
     font-size: 1.25rem;
-    /* based on root element, here: html. rem is a scaled value of what our html value is; default is 16px; Rem is considered a Relative Unit, because it is relative to another value */
-    /* dont ever give px-as thats a css fixed size, and overrides the user preference */
+    /* 1.25rem = 20px (assuming a 16px default root). Using rem ensures responsiveness 
+       and respects user-defined browser font sizing preferences. */
     line-height: 1.5;
-    /* you generally want the line height to be much more than your font size
-    usually can use a ratio (unitless): the default is 1.4; try 1.5-1.6 first */
+    /* Unitless line height ensures ideal legibility relative to the text size */
+    color: #484D55;
 }
 
-
 header {
-    /* image is in the header - logo, can centre the img, but you need to select the parent container, otherwise it centres itslef in the img. this works bc img is an inline element
-   
-/* text-align: center; */
     display: flex;
     gap: 20px;
     justify-content: space-between;
-
+    align-items: center;
 }
 
+section {
+    margin-block: 75px;
+    /* Logical Property: Applies margin to top and bottom (block axis) */
+}
+
+img {
+    max-inline-size: 100%;
+    /* Logical Property equivalent to max-width. Ensures images don't overflow layout limits */
+    display: block;
+}
+
+/* ==========================================================================
+   Typography & Links
+   ========================================================================== */
 
 h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /* this is called font-stacking */
-
-    color: #484D55;
-
     text-align: center;
-    /* logical values (start, end) can be used for logical properties [new to text-alignment], instead of L-R, start and end; this is bc ome languages go from R-L and the logic property aligns this approriately.  */
-
-    /* inline-size: 200px; */
-    /* this is a logical property, non-logical alterantive is width;
-    one has to be careful, as this can cause issues when screen size chnages, although not as bad as block-size */
-
     font-size: 4.5rem;
     line-height: 1.1;
+}
 
-    @media (width > 720px) {
+/* Modern responsive text sizing using Container/Viewport Media Queries */
+@media (width > 720px) {
+    h1 {
         font-size: 7.5rem;
     }
 }
 
 h2 {
     color: #cb831c;
-    /* alternatively if you want it to inherit, can use the value "inherit" for this property */
     font-size: 2.5rem;
-    background: lightblue;
-
 }
 
 h3 {
     font-size: 1.75rem;
+}
+
+.climber-bg h3 {
+    color: white;
+}
+
+.climber-bg p {
+    color: white;
+}
+
+strong {
+    color: #011317;
 }
 
 a {
@@ -63,67 +79,25 @@ a {
     text-decoration-style: wavy;
 }
 
-a:visited {
-    color: blue
-        /* not necessarily needed */
-}
-
+/* Grouping hover and focus-visible states ensures keyboard users share the same styling parity */
 a:hover,
 a:focus-visible {
-    color: yellowgreen
-        /* a:focus-visible is for keyboard navigation - it gives an outline 
- this should alwaus be added to hover state */
-        /* also dont rely on hover, most users will be on touch devices */
+    color: yellowgreen;
 }
 
 a:active {
     color: darkcyan;
-    /* not necessarily needed */
 }
 
-/* this order is important: a, a:visited, a:hover+a:focus-visible, a:active */
-
-
-section {
-    margin-block: 75px;
-    /* this is the space between the top and bottom of the section */
-}
-
-.primary-navigation ul {
-    display: flex;
-    gap: 10px;
-    list-style: none;
-    /* this takes away the semantics of the element though */
-    margin: 0;
-    padding: 0;
-}
-
-.primary-navigation li::marker {
-    content: none;
-}
-
-.primary-navigation a {
-    /* this class is boosting the specificity of my selector */
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.primary-navigation a:hover,
-.primary-navigationa:focus-visible {
-    color: #5f9b9f;
-}
-
-img {
-    max-inline-size: 100%;
-    /* not logical version, but dont use: max-width */
-    display: block;
-}
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
 
 .wrapper {
-    /* standard to call it .container, but a new css feature in CSS called Container Queries - so to avoid confusion */
     max-inline-size: 1000px;
+    /* Logical Property: Replaces max-width to protect text readability on wide displays */
     margin-inline: auto;
+    /* Logical Property: Centres the layout horizontally on the inline axis */
 }
 
 .two-column-layout {
@@ -136,6 +110,32 @@ img {
     }
 }
 
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.primary-navigation ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-navigation a {
+    color: #484D55;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.primary-navigation a:hover,
+.primary-navigation a:focus-visible {
+    color: #087a98;
+}
+
+/* ==========================================================================
+   Utility & Context Classes
+   ========================================================================== */
 
 .teal-text {
     color: #087a98;
@@ -145,82 +145,32 @@ img {
     background-color: #087a98;
     color: #86c7d7;
     padding: 20px;
-    /* empty space all the way around including the background colour */
     border: 10px solid #0b4a5a;
 }
 
 .teal-bg strong {
-    color: yellow
+    color: yellow;
 }
 
-strong {
-    color: #cbdee2;
-    ;
+
+
+.climber-bg {
+    background-image: url('../version_2/images/simple-steps.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 24px;
+    border: 10px solid #0b4a5a;
+    /* Design Tip: Always use an accessible background-color fallback if image assets fail to resolve */
+    background-color: #0b4a5a;
 }
 
 footer {
     text-align: center;
 }
 
-
-
-/* p { */
-/* background: pink; */
-/* good idea to give background colour, so you can test whats happening */
-
-/* block-size: 350px; */
-/* this increases the height of the box the text is in BUT as the screensize decreases, the text will spill out
-    the non-logical version of this is height
-    this most of the time should not be used as we want the layout to be able to adapt*/
-
-/* padding-block: 100px; */
-/* top and bottom padding, can also do padding-inline for left and right 
-    also could do padding-inline-start or padding-inline-end 
-    or padding-block-start and padding-block-end
-    or shorthand: top, right, bottom, left, and not using logical properties*/
-/* padding: 20px 40px 60px 80px; */
-/* or if 3: top, l-r, bottom
-    or if 2: top-bottom, l-r */
-
-/* margins are empty space that do NOT include the background colour */
-/* margin also has block (adding empty space up and down) and inline (adding empty space left and right) */
-
-/* width, style and color that can be added to borders */
-/* border can be border-block (top and bottom) or border-inline (LR), each can have a start or end */
-/* individual parts for width eg can be targeted: border-block-end-width */
-/* border-top, bottom, left, right exist but are not logical properties, so avoid */
-
-/* } */
-
-.accent {
-    color: red;
-}
-
-
-.climber-bg {
-    background-image: url(../version_2/images/simple-steps.jpg);
-    padding: 24px;
-    border: 10px solid #0b4a5a;
-    background-repeat: no-repeat;
-    background-position: center;
-    /* or fixed position such as: 100px 10px */
-    /* down by 10 and over by 100 from the top left corner*/
-    background-size: cover;
-    /* have both a background-color and a background-image,
-        so that if your image fails to load,
-        you ensure that you have a solid color that makes it easy to read your text on. */
-}
-
-ul {
-    color: black;
-    list-style: circle;
-    list-style-position: outside;
-    /* to see what this does, add  border and margin-block to li */
-    /* outside looks cleaner weh theres a text wrap; but this is the default, so its not needed */
-}
-
+/* Styled markers for standard content unordered lists */
 ul li::marker {
     color: red;
-    /* :focus is a pseudo class, this is pseudo element */
-    content: "😁"
+    content: "• ";
 }
